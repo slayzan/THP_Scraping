@@ -1,7 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
 
-#recupere le nom de la crypto ainsi que sa valeur et creer le hash correspondant
+# recupere le nom de la crypto ainsi que sa valeur et creer le hash correspondant
 def crypto
   page = Nokogiri::HTML(URI.open('https://coinmarketcap.com/all/views/all/'))
   tmp = page.css('/html/body/div[1]/div[1]/div[2]/div[1]/div[2]/div/div[2]/div[3]/div/table/tbody/tr')
@@ -9,6 +9,7 @@ def crypto
   crypto_name_array
 end
 
+# recupere le prix et le nom des crypto sur la page correspondant pour les ranger dans un hash
 begin
   pp crypto
 rescue StandardError => e
